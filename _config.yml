@@ -87,12 +87,11 @@ icon-192p: "/img/web-app/icon-192p.png"
 
 enable-gesture-navigation: True
 
-post-preview-words: 0
+post-preview-words: 95
 
-paginate: 0
+paginate: 5
 
 email-share: True
-fb-share: True
 twitter-share: True
 linkedin-share: True
 
