@@ -102,13 +102,7 @@ syntax-highlight: True
 ############
 # Timeline #
 ############
-events:
-  - image: "/img/timeline/spidertocat.png"
-    date: "September 2013 - Today"
-    description: "Saving the neighborhood!"
-  - image: "/img/timeline/baracktocat.jpg"
-    date: "September 2007 - August 2013"
-    description: "Started coding"
+
 ###########
 # Contact #
 ###########
@@ -124,7 +118,7 @@ email: "flynn.sbundy@gmail.com"
 
 # if the author_blurb is not set, then this feature is skipped
 author_blurb: "Flynn Bundy is a lover of all things automated. My primary interest is on cutting edge technolgies surrounding DevOps related tools."
-author_blurb_image: "/img/flynn.png"
+author_blurb_image: "/img/author.png"
 
 ##################
 # Social Buttons #
