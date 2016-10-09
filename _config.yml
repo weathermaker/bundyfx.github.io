@@ -95,7 +95,6 @@ fb-share: True
 twitter-share: True
 linkedin-share: True
 
-
 disqus-shortname: "flynnbundy"
 
 syntax-highlight: True
@@ -103,10 +102,6 @@ syntax-highlight: True
 ############
 # Timeline #
 ############
-
-# First image of the Timeline
-
-timeline-img: "/img/timeline/default.png"
 
 ###########
 # Contact #
