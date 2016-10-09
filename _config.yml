@@ -57,7 +57,7 @@ delete-delay: 5000
 lines: # You can add HTML Tags in the Text
   - text: "First, solve the problem. Then, write the code."
 
-me-img: "/img/jetpacktocat.png"
+me-img: "/img/author.png"
 
 ##############################
 # Color the browser elements #
