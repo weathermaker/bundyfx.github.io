@@ -3,7 +3,7 @@
 
 # NB! Set your site's url, otherwise stuff will break :)
 
-url: "https://bundyfx.github.io/"
+url: "https://panossakkos.github.io"
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (https://yourusername.github.io/repository-name)
@@ -12,7 +12,7 @@ url: "https://bundyfx.github.io/"
 #
 # NB! Without this *nothing* will work, because it's used in every path :)
 
-baseurl: /bundyfx-blog
+baseurl: /personal-jekyll-theme
 
 # Google tracking id
 
@@ -29,10 +29,10 @@ force-https: True
 #############
 
 lang: "en"
-author: "Flynn Bundy"
-title: "{ Flynn Bundy }"
-description: "Blog and website of Flynn Bundy. Speaker, Blogger, Coder. A Microsoft Cloud and Datacenter MVP interested in all things automated."
-keywords: "bundy, flynn, personal, jekyll, theme"
+author: "John Smith"
+title: "{ John Smith }"
+description: "Blog and website of John Smith, blogging mainly for tech. Opinions expressed are mine."
+keywords: "smith, jones, personal, jekyll, theme"
 favicon: "/img/favicon.ico"
 
 ################
@@ -55,7 +55,8 @@ type-speed: 10
 start-delay: 200
 delete-delay: 5000
 lines: # You can add HTML Tags in the Text
-  - text: "First, solve the problem. Then, write the code."
+  - text: "The lower you fall, the higher you'll fly."
+  - text: "Where’s your will to be weird?"
 
 me-img: "/img/jetpacktocat.png"
 
@@ -94,14 +95,21 @@ email-share: True
 fb-share: True
 twitter-share: True
 linkedin-share: True
+reddit-share: True
+google-plus-share: True
+tumblr-share: True
+pinterest-share: True
+pocket-share: True
+vkontakte-share: True
 
-disqus-shortname: "flynnbundy"
+disqus-shortname: "panossakkos"
 
 syntax-highlight: True
 
 ############
 # Timeline #
 ############
+
 events:
   - image: "/img/timeline/spidertocat.png"
     date: "September 2013 - Today"
@@ -109,11 +117,16 @@ events:
   - image: "/img/timeline/baracktocat.jpg"
     date: "September 2007 - August 2013"
     description: "Started coding"
+
+# First image of the Timeline
+
+timeline-img: "/img/timeline/default.png"
+
 ###########
 # Contact #
 ###########
 
-email: "flynn.sbundy@gmail.com"
+email: "your@email.here"
 
 ################
 # Author Blurb #
@@ -123,8 +136,8 @@ email: "flynn.sbundy@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "Flynn Bundy is a lover of all things automated. My primary interest is on cutting edge technolgies surrounding DevOps related tools."
-author_blurb_image: "/img/flynn.png"
+author_blurb: "John Smith is an awesome person. He lives in Flatland, where he works on two-dimensional engineering projects. In his spare time, John likes to eat cotton candy."
+author_blurb_image: "/img/author.png"
 
 ##################
 # Social Buttons #
@@ -132,12 +145,15 @@ author_blurb_image: "/img/flynn.png"
 
 social:
   - title: "facebook"
-    url: "https://www.facebook.com/fbundy"
+    url: "https://facebook.com/"
   - title: "twitter"
-    url: "https://twitter.com/Bundyfx"
+    url: "https://twitter.com/"
   - title: "github"
-    url: "https://github.com/bundyfx"
-
+    url: "https://github.com/PanosSakkos/personal-jekyll-theme"
+  - title: "bitcoin"
+    url: "https://blockchain.info/address/1LHuKC9Em3KA5yoZaf7nngnNdf9K7s2gSi"
+  - title: "rss"
+    url: "/feed.xml"
 
 ############
 # 404 page #
@@ -149,6 +165,10 @@ social:
 # GPG on Keybase #
 ##################
 
+keybase-username: johnsmith
+keybase-in-social: True
+keybase-in-footer: True
+
 ################################################################################
 
 # NB! Tread carefully if you want to change the variables below this point!
@@ -158,6 +178,7 @@ social:
 pages_list:
   About: 'about'
   Blog: 'latest-post'
+  Timeline: 'timeline'
   Contact: 'contact'
 
 # Exclusion list from the generated _site
