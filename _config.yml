@@ -118,7 +118,7 @@ email: "flynn.sbundy@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "Flynn Bundy is a lover of all things automated. My primary interest is on cutting edge technolgies surrounding DevOps related tools."
+author_blurb: "Flynn is a lover of all things automated. His primary interest is on cutting edge technologies surrounding DevOps related tools."
 author_blurb_image: "/img/author.png"
 
 ##################
