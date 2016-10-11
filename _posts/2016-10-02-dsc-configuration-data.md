@@ -12,7 +12,7 @@ Let’s connect some of the dots so it becomes crystal clear.
 
 Here is a static DSC Configuration file that outlines some basic configuration for a fleet of Web Servers.
 
-https://github.com/bundyfx/bundyfx-blog/tree/master/img/posts/2016-10-02-dsc-configuration-data/1.png
+![powershell](/img/posts/2016-10-02-dsc-configuration-data/1.png)
 
 As you can see we have a fair amount of code repetition here. However, this will still produce us our six mof files for our statically assigned nodes.
 
@@ -22,21 +22,21 @@ Configuration data is essentially a Hashtable (stored as a .psd1 file) that we c
 
 You will notice you have multiple templates all ready to go in the ISE (Ctrl + J) for Configuration Data and also Configuration:
 
-https://github.com/bundyfx/bundyfx-blog/tree/master/img/posts/2016-10-02-dsc-configuration-data/2.png
+![powershell](/img/posts/2016-10-02-dsc-configuration-data/2.png)
 
 Lets Choose ‘DSC ConfigurationData’ and create our-self a .psd1 file.
 
-https://github.com/bundyfx/bundyfx-blog/tree/master/img/posts/2016-10-02-dsc-configuration-data/3.png
+![powershell](/img/posts/2016-10-02-dsc-configuration-data/3.png)
 
 In our Configuration Data we’re going to pack it full of nodes and features that fall into the category of our role (in this case WebServer).
 
 Now that we have our Configuration Data stored locally we can use Import-LocalizedData to parse our file to ensure its configuration. This can be used for creating Pester tests for Configuration Data and DSC In general.
 
-https://github.com/bundyfx/bundyfx-blog/tree/master/img/posts/2016-10-02-dsc-configuration-data/4.png
+![powershell](/img/posts/2016-10-02-dsc-configuration-data/4.png)
 
 Now that we’ve our .psd1 file saved we can simply reference it from our Configuration script.
 
-https://github.com/bundyfx/bundyfx-blog/tree/master/img/posts/2016-10-02-dsc-configuration-data/5.png
+![powershell](/img/posts/2016-10-02-dsc-configuration-data/5.png)
 
 As you can see this is making the most of DSC capabilities with Configuration Data to make our Configuration file smaller and more dynamic.
 
