@@ -6,7 +6,7 @@ category: tech
 tags: [ 'DSC', 'PowerShell' ]
 ---
 
-<p>The intricacies of DSC Configuration Data can be somewhat tricky to understand at first but today I want to show you that once you have played around with it and created some example configurations it will all make sense.</p>
+<p style="text-align: left;">The intricacies of DSC Configuration Data can be somewhat tricky to understand at first but today I want to show you that once you have played around with it and created some example configurations it will all make sense.</p>
 
 Let’s connect some of the dots so it becomes crystal clear.
 
