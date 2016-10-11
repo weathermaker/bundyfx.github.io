@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: Making the most of DSC Configuration Data
-category: tech
+category: DSC
 tags: [ 'DSC', 'PowerShell' ]
 ---
 
