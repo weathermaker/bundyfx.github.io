@@ -85,11 +85,11 @@ icon-192p: "/img/web-app/icon-192p.png"
 # Blog #
 ########
 
-enable-gesture-navigation: True
+enable-gesture-navigation: False
 
 post-preview-words: 95
 
-paginate: 5
+paginate: 10
 
 email-share: True
 twitter-share: True
