@@ -6,7 +6,7 @@ category: tech
 tags: [ 'DSC', 'PowerShell' ]
 ---
 
-<p style="text-align: left;">The intricacies of DSC Configuration Data can be somewhat tricky to understand at first but today I want to show you that once you have played around with it and created some example configurations it will all make sense.
+The intricacies of DSC Configuration Data can be somewhat tricky to understand at first but today I want to show you that once you have played around with it and created some example configurations it will all make sense.
 
 Let’s connect some of the dots so it becomes crystal clear.
 
@@ -42,4 +42,4 @@ As you can see this is making the most of DSC capabilities with Configuration Da
 
 For more information on DSC and Configuration Data see the official documentation here.
 
-Hopefully this helps shed some light on the ‘Why and How’ of Configuration Data and DSC.</p>
+Hopefully this helps shed some light on the ‘Why and How’ of Configuration Data and DSC.
