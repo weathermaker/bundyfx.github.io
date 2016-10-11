@@ -91,10 +91,6 @@ post-preview-words: 95
 
 paginate: 10
 
-email-share: True
-twitter-share: True
-linkedin-share: True
-
 disqus-shortname: "flynnbundy"
 
 syntax-highlight: True
