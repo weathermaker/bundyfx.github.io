@@ -59,7 +59,6 @@ lines: # You can add HTML Tags in the Text
   - text: "Write-Output 'Hello and welcome'"
   - text: "print('Hello and welcome')"
   - text: "$stdout.write 'Hello and welcome'"
-  - text: "Console.WriteLine("Hello and welcome");"
 
 me-img: "/img/author.png"
 
