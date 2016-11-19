@@ -55,8 +55,11 @@ type-speed: 10
 start-delay: 200
 delete-delay: 5000
 lines: # You can add HTML Tags in the Text
-  - text: "First, solve the problem. Then, write the code."
-  - text: "The cheapest, fastest, and most reliable components are those that aren’t there."
+  - text: "console.log('Hello and welcome')"
+  - text: "Write-Output 'Hello and welcome'"
+  - text: "print('Hello and welcome')"
+  - text: "$stdout.write 'Hello and welcome'"
+  - text: "Console.WriteLine("Hello and welcome");"
 
 me-img: "/img/author.png"
 
