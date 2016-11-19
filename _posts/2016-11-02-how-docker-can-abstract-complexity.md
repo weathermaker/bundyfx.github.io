@@ -40,7 +40,7 @@ Well, let's get a picture to test with.
 
 For this test, I'll go with something pretty straight forward designed to test OCR functionality.
 
-![Ocr](https://bundyfx.github.io/bundyfx-blog/img/posts/2016-11-18-how-docker-can-abstract-complexity/3.png)
+![Ocr](https://bundyfx.github.io/bundyfx-blog/img/posts/2016-11-18-how-docker-can-abstract-complexity/3.jpg)
 
 Firstly we will copy the image to our container then run it against OCR and see how it goes.
 
