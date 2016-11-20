@@ -213,3 +213,7 @@ echo '{"check": {"name": "ping",
 Once the file is on disk in `/etc/consul.d` you can simply run `consul reload` to have the new check initiated.
 
 You can read more about Health Checks [Here](https://www.consul.io/intro/getting-started/checks.html).
+
+### Conclusion
+
+Consul is a fantastic tool when it comes to service discovery in a micro-services architecture. I look forward to creating a larger scale demo in the near future with NodeJS and MongoDB to illustrate the tool further and learn more about it's inner workings.
