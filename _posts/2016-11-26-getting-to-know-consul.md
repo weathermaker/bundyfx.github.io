@@ -14,8 +14,8 @@ Contents
 =================
 
 * [Enter Consul](#enter-consul)
-* [Key/Value](#key-value)
-* [Installation](#install-consul-on-an-agent)
+* [Key/Value](#key/value)
+* [Installation](#installing-consul-on-an-agent)
 * [Creating a Service](#creating-a-service)
 * [Consul Commands](#consul-commands)
 * [Health Checks](#health-checks)
