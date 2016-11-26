@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: Getting to know Consul
-category: Service Discovery
+category: Service-Discovery
 tags: [ 'Docker', 'Consul' ]
 ---
 
