@@ -23,7 +23,7 @@ Contents
 
 As you can see from the [Readme](https://github.com/hashicorp/consul/blob/master/README.md), Consul is a tool for service discovery and configuration *(and more!)*. You might say, *'Service discovery.. pfft, Why would I need that?'* and unless you're getting your hand into the Docker and/or rapid scaling scene you may be correct.
 
-As we pile more and more services into Docker the chances of a fight breaking for resources, routing or monitoring rapidly increases. Maybe you've got fifty services running and you need to manage the listening ports for all of these. Add in the associated databases in which some of these services use and you would need to be some sort of magician to remember names, ports and who is talking to who.
+As we pile more and more services into Docker the chances of a fight breaking out for resources, routing or monitoring rapidly increase. Maybe you've got fifty services running and you need to manage the listening ports for all of these. Add in the associated databases in which some of these services use and you would need to be some sort of magician to remember the names, ports and who is talking to who.
 
 One might say: *'why bother specifying static ports in Docker?'*
 
@@ -33,11 +33,11 @@ The concept of Service Discovery is *not* new however it has become more of an e
 
 ### Enter Consul
 
-Hashicorp's [Consul](https://www.consul.io/) has become a hugely popular tool since it's release a few years back. In this post I wanted to go through an example of its use case and show you how easy it is to work with.
+Hashicorp's [Consul](https://www.consul.io/) has become a hugely popular tool since it's release a few years back. In this post, I want to go through an example of its use case and show you how easy it is to work with.
 
 In this post we're going to be working with [Docker](https://www.docker.com/). You can download Docker for [Windows](https://docs.docker.com/docker-for-windows/) or [Mac](https://docs.docker.com/docker-for-mac/).
 
-To start we're going to be working with a Docker image of Consul that's available via Docker Hub titled: [progrium/consul](https://hub.docker.com/r/progrium/consul/). You can simply pull this down by running:
+To start, we're going to be working with a Docker image of Consul that's available via Docker Hub titled: [progrium/consul](https://hub.docker.com/r/progrium/consul/). You can simply pull this down by running:
 
 `docker pull progrium/consul`
 
@@ -55,7 +55,7 @@ A couple of things to note about how Consul works are displayed in this output:
 * *raft*: [Raft](https://en.wikipedia.org/wiki/Raft_(computer_science)) is a consensus algorithm that is based on [Paxos](https://en.wikipedia.org/wiki/Paxos_(computer_science)). Compared to Paxos, Raft is designed to have fewer states and a simpler, more understandable algorithm.
 * *consul*: Well.. This is what we're talking about here.
 
-Since we're not running in a cluster *(which is not normal)* you will see an error stating that the node was unable to join the cluster. This is expected with this simple example.
+Since we're not running in a cluster *(which is not the normal)* you will see an error stating that the node was unable to join the cluster. This is expected with this simple example.
 
 As you can see from image notes on docker hub: *'We publish 8400 (RPC), 8500 (HTTP), and 8600 (DNS) so you can try all three interfaces. We also give it a hostname of node1. Setting the container hostname is the intended way to name the Consul Agent node.'*
 
@@ -67,7 +67,7 @@ We also added the Consul UI switch when we launched our Consul Container. We can
 
 In the Web interface we get a overview of the current state of our environment plus a whole lot more that you will want to dig around with.
 
-The best and easiest way to interact with Consul to service information is to use HTTP(s).
+The best and easiest way to interact with Consul to get information is to use HTTP(s).
 
 ![Output](/img/posts/2016-11-26-getting-to-know-consul/3.png)
 
@@ -99,8 +99,8 @@ And this time with a *flag*:
 
 We added two more items into our key/value store!
 
-Notice with the 'Kobe Bryant' Key that we've specified `?flags=24` to the end of our `PUT` request.
-This allows us to associate an integer with with a key/value pair that can be used to group certain data together.
+Notice with the *'Kobe Bryant'* Key that we've specified `?flags=24` to the end of our `PUT` request.
+This allows us to associate an integer with a key/value pair that can be used to group certain data together.
 
 `curl -X PUT -d 'Black Mamba' http://localhost:8500/v1/kv/web/key4?flags=24`
 
@@ -110,11 +110,11 @@ We can simply retrieve data from our key/value store in similar fashion.
 
 `curl http://localhost:8500/v1/kv/web/key1`
 
-or in a recursive method *(using PowerShell for pretty output)*:
+Or in a recursive method *(using PowerShell for pretty output)*:
 
 `curl http://localhost:8500/v1/kv/?recurse | ConvertFrom-Json`
 
-You will notice that the value returned back from these queries is base64 encoded to allow non-UTF8 characters!
+You will notice that the value returned back from these queries is base64 encoded.
 
 In order to get the raw value back from the query you will need to append `?raw` to your query.
 
@@ -126,7 +126,7 @@ You can read more about Key/Value in Consul [Here](https://www.consul.io/docs/ag
 
 ### Installing Consul on an Agent
 
-For this example I want to blow away our single node consul server and create a 3 node cluster. We can do that simply by following the instructions on the progrium/consul guide.
+For this example I want to blow away our single node Consul server and create a **3** node cluster using the same Docker image. We can do that simply by following the instructions on the *progrium/consul* guide.
 
 ```bash
 docker run -d --name node1 -h node1 progrium/consul -server -bootstrap-expect 3
@@ -166,7 +166,7 @@ Now that we've got Consul downloaded we can join this agent to our cluster using
 
 So we've talked about DNS, Key/Value and Installing Consul. What about Services?
 
-One of the main goals of service discovery is to provide a catalog of available services. You can think of services as an application or database, or really anything that you are offering for consumption by another service or end user.
+One of the main goals of service discovery is to provide a catalog of available services. You can think of services as an application, database or really anything that you are offering for consumption by another service or end user.
 
 All Services can be queried by running:
 `curl localhost:8500/v1/catalog/services`
@@ -193,11 +193,11 @@ docker-compose up -d && docker-compose scale consul=3 app=3
 ```
 
 
-Once this has downloaded the required images and spun containers up you should be able to hit `localhost:8500` to see the Consul web UI or localhost:80 to see the requests being served to and responded by different Node.js containers, maintaining sticky sessions.
+Once this has downloaded the required images and spun containers up you should be able to hit `localhost:8500` to see the Consul web UI or `localhost:80` to see the requests being served to and responded by different Node.js containers, maintaining sticky sessions.
 
 ![Output](/img/posts/2016-11-26-getting-to-know-consul/7.png)
 
-These Services were started and bootstrapped to essentially do a `consul join` and connect with the consul cluster. Once joined they can be queried by other services requiring there needs.
+These Services were started and bootstrapped to essentially do a `consul join` and connect with the Consul cluster. Once joined they can be queried by other services requiring there needs.
 
 To destroy the composition and remove all the containers you can run `docker-compose down`
 
@@ -207,7 +207,7 @@ You can read more about Service definitions [Here](https://www.consul.io/docs/ag
 
 Consul comes with a slew of commands that agent's can execute. You can get a full breakdown by just typing in `consul` or more detailed help by calling the exact command `consul members -?`
 
-Another example using `consul exec`
+A basic example using `consul exec`:
 
 `consul exec echo 'hi from $(hostname)'`
 
