@@ -92,6 +92,9 @@ This can be done via the web console or via a `PUT` request.
 You will notice you get back a `true` response indicating that the data has been stored. Let's add in a few more.
 
 `curl -X PUT -d 'I like Beer' http://localhost:8500/v1/kv/web/key2`
+
+And this time with a *flag*:
+
 `curl -X PUT -d 'Kobe Bryant' http://localhost:8500/v1/kv/web/key3?flags=24`
 
 We added two more items into our key/value store!
@@ -125,10 +128,12 @@ You can read more about Key/Value in Consul [Here](https://www.consul.io/docs/ag
 
 For this example I want to blow away our single node consul server and create a 3 node cluster. We can do that simply by following the instructions on the progrium/consul guide.
 
-`docker run -d --name node1 -h node1 progrium/consul -server -bootstrap-expect 3`
-`JOIN_IP="$(docker inspect -f '{{.NetworkSettings.IPAddress}}' node1)"`
-`docker run -d --name node2 -h node2 progrium/consul -server -join $JOIN_IP`
-`docker run -d --name node3 -h node3 progrium/consul -server -join $JOIN_IP`
+```bash
+docker run -d --name node1 -h node1 progrium/consul -server -bootstrap-expect 3
+JOIN_IP="$(docker inspect -f '{{.NetworkSettings.IPAddress}}' node1)"
+docker run -d --name node2 -h node2 progrium/consul -server -join $JOIN_IP
+docker run -d --name node3 -h node3 progrium/consul -server -join $JOIN_IP
+```
 
 And to add in a Client node *(no -server switch)*:
 
@@ -140,7 +145,7 @@ You can hit the web console to see the nodes listed there.
 
 Installing Consul is so simple because all it requires is just the binaries to run. You can spin up a new ubuntu container and install it within a few seconds, like so:
 
-```
+```bash
 apt-get update
 apt-get install unzip -y
 apt-get install wget -y
@@ -167,7 +172,7 @@ All Services can be queried by running:
 
 In order to register a basic Service we can run something like:
 
-```
+```bash
 echo '{"service": {"name": "myservice", "tags": ["nodejs"], "port": 80}}' \
     | sudo tee /etc/consul.d/myservice.json
 ```
@@ -179,9 +184,11 @@ To take this example a bit further and demonstrate how easy Consul is to setup, 
 
 Now let's clone this great repository by [Scott Memberson](https://github.com/smebberson/docker-alpine) that will help demonstrate Services in Consul.
 
-`git clone https://github.com/smebberson/docker-alpine.git`
-`cd docker-alpine/examples/complete/`
-`docker-compose up -d && docker-compose scale consul=3 app=3`
+```bash
+git clone https://github.com/smebberson/docker-alpine.git
+cd docker-alpine/examples/complete/
+docker-compose up -d && docker-compose scale consul=3 app=3
+```
 
 Once this has downloaded the required images and spun containers up you should be able to hit `localhost:8500` to see the Consul web UI or localhost:80 to see the requests being served to and responded by different Node.js containers, maintaining sticky sessions.
 
@@ -215,7 +222,7 @@ In the example above you may of noticed the health check doing a simple http req
 
 A basic example of this would be the following:
 
-```
+```bash
 echo '{"check": {"name": "ping",
   "script": "ping -c1 google.com >/dev/null", "interval": "30s"}}' \
   >/etc/consul.d/ping.json
