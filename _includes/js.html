@@ -39,7 +39,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 
 {% endif %}
 
-{% if jekyll.environment == "production" %}
+
   {% if site.google-tracking-id %}
 
   <!-- Google Tracking Id Start -->
@@ -56,7 +56,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
   <!-- Google Tracking Id End -->
 
   {% endif %}
-{% endif %}
+
 
 {% if site.disqus-shortname and jekyll.environment == "production" %}
 
