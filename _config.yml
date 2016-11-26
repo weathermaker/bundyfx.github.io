@@ -4,7 +4,7 @@
 # NB! Set your site's url, otherwise stuff will break :)
 
 url: "https://bundyfx.github.io/"
-enforce_ssl: flynnbundy.com 
+enforce_ssl: flynnbundy.com
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (https://yourusername.github.io/repository-name)
@@ -13,7 +13,7 @@ enforce_ssl: flynnbundy.com
 #
 # NB! Without this *nothing* will work, because it's used in every path :)
 
-baseurl: /
+baseurl: /bundyfx.github.io
 
 # Google tracking id
 
