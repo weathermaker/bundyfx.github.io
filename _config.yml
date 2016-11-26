@@ -90,7 +90,7 @@ icon-192p: "/img/web-app/icon-192p.png"
 
 enable-gesture-navigation: False
 
-post-preview-words: 95
+post-preview-words: 20
 
 paginate: 10
 
@@ -116,7 +116,7 @@ email: "flynn.sbundy@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "Flynn is a lover of all things automated. His primary interest is on cutting edge technologies surrounding DevOps related tools."
+author_blurb: "A Windows Cloud and Datacenter Management MVP, lover of all things automated."
 author_blurb_image: "/img/author.png"
 
 ##################
