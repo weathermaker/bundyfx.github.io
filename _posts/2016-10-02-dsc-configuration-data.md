@@ -20,7 +20,7 @@ Let’s make this look better.
 
 Configuration data is essentially a Hashtable (stored as a .psd1 file) that we can pass in at compile time that allows us to more dynamically create our mof files.
 
-You will notice you have multiple templates all ready to go in the ISE (Ctrl + J) for Configuration Data and also Configuration:
+You will notice you have multiple templates all ready to go in the ISE *(Ctrl + J)* for Configuration Data and also Configuration:
 
 ![powershell](/img/posts/2016-10-02-dsc-configuration-data/2.png)
 
@@ -30,7 +30,7 @@ Lets Choose ‘DSC ConfigurationData’ and create our-self a .psd1 file.
 
 In our Configuration Data we’re going to pack it full of nodes and features that fall into the category of our role (in this case WebServer).
 
-Now that we have our Configuration Data stored locally we can use Import-LocalizedData to parse our file to ensure its configuration. This can be used for creating Pester tests for Configuration Data and DSC In general.
+Now that we have our Configuration Data stored locally we can use **Import-LocalizedData** to parse our file to ensure its configuration and/or logic. This can be used for creating Pester tests for Configuration Data and DSC In general.
 
 ![powershell](/img/posts/2016-10-02-dsc-configuration-data/4.png)
 
