@@ -14,7 +14,7 @@ Contents
 =================
 
 * [Enter Consul](#enter-consul)
-* [Key/Value](#key/value)
+* [Key/Value](#key-value)
 * [Installation](#installing-consul-on-an-agent)
 * [Creating a Service](#creating-a-service)
 * [Consul Commands](#consul-commands)
@@ -75,7 +75,7 @@ In this example I am using [PowerShell](https://github.com/PowerShell/PowerShell
 
 This concept is simple however it allows other applications within Docker networks to call consul to find information about the nodes that are registered. In turn, allowing nodes to easily find each other without conflict.
 
-### Key/Value
+### Key-Value
 
 In addition to providing service discovery and integrated health checking, Consul provides an easy to use Key/Value store. This can be used to hold dynamic configuration, assist in service coordination, build leader election, and enable anything else a developer can think to build.
 
