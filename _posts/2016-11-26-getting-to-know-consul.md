@@ -21,9 +21,9 @@ Contents
 * [Health Checks](#health-checks)
 
 
-As you can see from the [Readme](https://github.com/hashicorp/consul/blob/master/README.md), Consul is a tool for service discovery and configuration. You might say, *'Service discovery.. pfft, Why would I need that?'* and unless you're getting your hand into the Docker scene you may be correct.
+As you can see from the [Readme](https://github.com/hashicorp/consul/blob/master/README.md), Consul is a tool for service discovery and configuration *(and more!)*. You might say, *'Service discovery.. pfft, Why would I need that?'* and unless you're getting your hand into the Docker and/or rapid scaling scene you may be correct.
 
-As we pile more and more Services into Docker the chances of services fighting with each other grows. Maybe you've got fifty services running and you need to manage the listening ports for all of these. Add in the associated databases in which some of these services use and you would need to be some sort of magician to remember this all.
+As we pile more and more services into Docker the chances of a fight breaking for resources, routing or monitoring rapidly increases. Maybe you've got fifty services running and you need to manage the listening ports for all of these. Add in the associated databases in which some of these services use and you would need to be some sort of magician to remember names, ports and who is talking to who.
 
 One might say: *'why bother specifying static ports in Docker?'*
 
@@ -47,12 +47,12 @@ Once you have pulled down the image we can fire it up:
 
 You should have an output like the following:
 
-![Output](/img/posts/2016-11-26-getting-to-know-consul//1.png)
+![Output](/img/posts/2016-11-26-getting-to-know-consul/1.png)
 
 A couple of things to note about how Consul works are displayed in this output:
 
 * *serf*: This is the internal gossip protocol used within Consul. Consul leverages the membership and failure detection features within serf and builds upon them to add service discovery.
-* *raft*: [Raft](https://en.wikipedia.org/wiki/Raft_(computer_science)) is a consensus algorithm that is based on [Paxos](https://en.wikipedia.org/wiki/Paxos_(computer_science). Compared to Paxos, Raft is designed to have fewer states and a simpler, more understandable algorithm.
+* *raft*: [Raft](https://en.wikipedia.org/wiki/Raft_(computer_science)) is a consensus algorithm that is based on [Paxos](https://en.wikipedia.org/wiki/Paxos_(computer_science)). Compared to Paxos, Raft is designed to have fewer states and a simpler, more understandable algorithm.
 * *consul*: Well.. This is what we're talking about here.
 
 Since we're not running in a cluster *(which is not normal)* you will see an error stating that the node was unable to join the cluster. This is expected with this simple example.
@@ -63,13 +63,13 @@ This makes it the perfect image for getting started with Consul and understandin
 
 We also added the Consul UI switch when we launched our Consul Container. We can access the Consul Console *(ha)* at any time by hitting it in the browser at `http://localhost:8500/`.
 
-![Output](/img/posts/2016-11-26-getting-to-know-consul//2.png)
+![Output](/img/posts/2016-11-26-getting-to-know-consul/2.png)
 
 In the Web interface we get a overview of the current state of our environment plus a whole lot more that you will want to dig around with.
 
 The best and easiest way to interact with Consul to service information is to use HTTP(s).
 
-![Output](/img/posts/2016-11-26-getting-to-know-consul//3.png)
+![Output](/img/posts/2016-11-26-getting-to-know-consul/3.png)
 
 In this example I am using [PowerShell](https://github.com/PowerShell/PowerShell) and hitting the end point with `curl` then transforming the JSON output into an object for easy viewing.
 
@@ -81,7 +81,7 @@ In addition to providing service discovery and integrated health checking, Consu
 
 This can be a super handy way for Containers to know where they can retrieve important information from such as content/paths and so on.
 
-![Output](/img/posts/2016-11-26-getting-to-know-consul//4.png)
+![Output](/img/posts/2016-11-26-getting-to-know-consul/4.png)
 
 You will see that if we query our *key/value* store we get back a `404 Not found`. Well, we need to first put some data in there before we can get anything back.
 
@@ -134,7 +134,7 @@ And to add in a Client node *(no -server switch)*:
 
 `docker run -d -p 8400:8400 -p 8500:8500 -p 8600:53/udp --name node4 -h node4 progrium/consul -join $JOIN_IP`
 
-![Output](/img/posts/2016-11-26-getting-to-know-consul//6.png)
+![Output](/img/posts/2016-11-26-getting-to-know-consul/6.png)
 
 You can hit the web console to see the nodes listed there.
 
@@ -152,7 +152,7 @@ rm *.zip
 
 Once the consul binaries have been downloaded to the node you can simply run `consul` to see the help.
 
-![Output](/img/posts/2016-11-26-getting-to-know-consul//5.png)
+![Output](/img/posts/2016-11-26-getting-to-know-consul/5.png)
 
 Now that we've got Consul downloaded we can join this agent to our cluster using `consul join` and passing in one of the IP address' of the cluster nodes: `consul join *ipaddress*`.
 
@@ -160,12 +160,21 @@ Now that we've got Consul downloaded we can join this agent to our cluster using
 
 So we've talked about DNS, Key/Value and Installing Consul. What about Services?
 
+One of the main goals of service discovery is to provide a catalog of available services. You can think of services as an application or database, or really anything that you are offering for consumption by another service or end user.
+
 All Services can be queried by running:
 `curl localhost:8500/v1/catalog/services`
 
-One of the main goals of service discovery is to provide a catalog of available services. You can think of services as an application or database, or really anything that you are offering for consumption by another service or end user.
+In order to register a basic Service we can run something like:
 
-To iterate over and show how easy it is to setup Consul let's destroy our cluster by running:
+```
+echo '{"service": {"name": "myservice", "tags": ["nodejs"], "port": 80}}' \
+    | sudo tee /etc/consul.d/myservice.json
+```
+
+Once we have our `myservice.json` on disk we can restart the Consul service `consul agent -config-dir=/etc/consul.d` to have it pull any checks and/or services within the config directory.
+
+To take this example a bit further and demonstrate how easy Consul is to setup, let's destroy our cluster by running:
 `docker rm -f $(docker ps -aq)`
 
 Now let's clone this great repository by [Scott Memberson](https://github.com/smebberson/docker-alpine) that will help demonstrate Services in Consul.
@@ -176,7 +185,7 @@ Now let's clone this great repository by [Scott Memberson](https://github.com/sm
 
 Once this has downloaded the required images and spun containers up you should be able to hit `localhost:8500` to see the Consul web UI or localhost:80 to see the requests being served to and responded by different Node.js containers, maintaining sticky sessions.
 
-![Output](/img/posts/2016-11-26-getting-to-know-consul//7.png)
+![Output](/img/posts/2016-11-26-getting-to-know-consul/7.png)
 
 These Services were started and bootstrapped to essentially do a `consul join` and connect with the consul cluster. Once joined they can be queried by other services requiring there needs.
 
