@@ -16,13 +16,13 @@ If you're just new to Docker then this will hopefully get you interested in some
 
 Have you ever wanted to just throw images into the command line and have the text abstracted? maybe you can think of some lucrative application that reads images and does some magic with the content. Maybe you search around for an open source tool to do this sort of thing and end up running into [tesseract](https://github.com/tesseract-ocr/tesseract).
 
-![Ocr](https://bundyfx.github.io/bundyfx.github.io/img/posts/2016-11-18-how-docker-can-abstract-complexity/1.png)
+![Ocr](/img/posts/2016-11-18-how-docker-can-abstract-complexity/1.png)
 
 Awesome, but how the hell do I use this thing?
 
 Enter Docker, Well more so the Dockerfile. If you look through the repository you may notice that there is a Dockerfile included.
 
-![Ocr](https://bundyfx.github.io/bundyfx.github.io/img/posts/2016-11-18-how-docker-can-abstract-complexity/2.png)
+![Ocr](/img/posts/2016-11-18-how-docker-can-abstract-complexity/2.png)
 
 This is always awesome to see because it allows people to use the project whilst abstracting some of the complicated aspects of running C++ projects on different operating systems.
 
@@ -40,11 +40,11 @@ Well, let's get a picture to test with.
 
 For this test, I'll go with something pretty straight forward designed to test OCR functionality.
 
-![Ocr](https://bundyfx.github.io/bundyfx.github.io/img/posts/2016-11-18-how-docker-can-abstract-complexity/3.jpg)
+![Ocr](/img/posts/2016-11-18-how-docker-can-abstract-complexity/3.jpg)
 
 Firstly we will copy the image to our container then run it against OCR and see how it goes.
 
-![Ocr](https://bundyfx.github.io/bundyfx.github.io/img/posts/2016-11-18-how-docker-can-abstract-complexity/4.png)
+![Ocr](/img/posts/2016-11-18-how-docker-can-abstract-complexity/4.png)
 
 How cool is that? And since its being returned to stdout and we're in PowerShell we can very much so pipe that information on to whatever we want just like any other object.
 
