@@ -135,6 +135,7 @@ docker run -d --name node2 -h node2 progrium/consul -server -join $JOIN_IP
 docker run -d --name node3 -h node3 progrium/consul -server -join $JOIN_IP
 ```
 
+
 And to add in a Client node *(no -server switch)*:
 
 `docker run -d -p 8400:8400 -p 8500:8500 -p 8600:53/udp --name node4 -h node4 progrium/consul -join $JOIN_IP`
@@ -177,6 +178,7 @@ echo '{"service": {"name": "myservice", "tags": ["nodejs"], "port": 80}}' \
     | sudo tee /etc/consul.d/myservice.json
 ```
 
+
 Once we have our `myservice.json` on disk we can restart the Consul service `consul agent -config-dir=/etc/consul.d` to have it pull any checks and/or services within the config directory.
 
 To take this example a bit further and demonstrate how easy Consul is to setup, let's destroy our cluster by running:
@@ -189,6 +191,7 @@ git clone https://github.com/smebberson/docker-alpine.git
 cd docker-alpine/examples/complete/
 docker-compose up -d && docker-compose scale consul=3 app=3
 ```
+
 
 Once this has downloaded the required images and spun containers up you should be able to hit `localhost:8500` to see the Consul web UI or localhost:80 to see the requests being served to and responded by different Node.js containers, maintaining sticky sessions.
 
@@ -227,6 +230,7 @@ echo '{"check": {"name": "ping",
   "script": "ping -c1 google.com >/dev/null", "interval": "30s"}}' \
   >/etc/consul.d/ping.json
 ```
+
 
 Once the file is on disk in `/etc/consul.d` you can simply run `consul reload` to have the new check initiated.
 
