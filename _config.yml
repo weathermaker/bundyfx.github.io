@@ -48,18 +48,15 @@ background-img: "/img/intro-bg.jpg"
 # Dynamic Text on the Header #
 ##############################
 
-dynamic-typing: True
-shuffle: True # Shuffle the lines.
-loop: True
-loop-count: False # Set False for infinite loop, or set any number for finite loop.
-type-speed: 10
-start-delay: 200
-delete-delay: 5000
-lines: # You can add HTML Tags in the Text
-  - text: "console.log('Hello and welcome')"
-  - text: "Write-Output 'Hello and welcome'"
-  - text: "print('Hello and welcome')"
-  - text: "$stdout.write 'Hello and welcome'"
+#dynamic-typing: True
+#shuffle: True # Shuffle the lines.
+#loop: True
+#loop-count: False # Set False for infinite loop, or set any number for finite loop.
+#type-speed: 10
+#start-delay: 200
+#delete-delay: 5000
+#lines: # You can add HTML Tags in the Text
+#  - text: "sometext"#
 
 me-img: "/img/author.png"
 
