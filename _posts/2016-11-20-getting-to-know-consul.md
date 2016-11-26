@@ -8,7 +8,7 @@ tags: [ 'Docker', 'Consul' ]
 
 Recently I had an itching to learn about [Consul](https://github.com/hashicorp/consul). In this post I want to share with you some of my findings and ramble about how this tool works.
 
-![Output](https://bundyfx.github.io/bundyfx-blog/img/posts/getting-to-know-consul/logo.png)
+![Output](https://bundyfx.github.io/bundyfx.github.io/img/posts/getting-to-know-consul/logo.png)
 
 
 * [Enter Consul](#enter-consul)
@@ -45,7 +45,7 @@ Once you have pulled down the image we can fire it up:
 
 You should have an output like the following:
 
-![Output](https://bundyfx.github.io/bundyfx-blog/img/posts/getting-to-know-consul/1.png)
+![Output](https://bundyfx.github.io/bundyfx.github.io/img/posts/getting-to-know-consul/1.png)
 
 A couple of things to note about how Consul works are displayed in this output:
 
@@ -61,13 +61,13 @@ This makes it the perfect image for getting started with Consul and understandin
 
 We also added the Consul UI switch when we launched our Consul Container. We can access the Consul Console *(ha)* at any time by hitting it in the browser at `http://localhost:8500/`.
 
-![Output](https://bundyfx.github.io/bundyfx-blog/img/posts/getting-to-know-consul/2.png)
+![Output](https://bundyfx.github.io/bundyfx.github.io/img/posts/getting-to-know-consul/2.png)
 
 In the Web interface we get a overview of the current state of our environment plus a whole lot more that you will want to dig around with.
 
 The best and easiest way to interact with Consul to service information is to use HTTP(s).
 
-![Output](https://bundyfx.github.io/bundyfx-blog/img/posts/getting-to-know-consul/3.png)
+![Output](https://bundyfx.github.io/bundyfx.github.io/img/posts/getting-to-know-consul/3.png)
 
 In this example I am using [PowerShell](https://github.com/PowerShell/PowerShell) and hitting the end point with `curl` then transforming the JSON output into an object for easy viewing.
 
@@ -79,7 +79,7 @@ In addition to providing service discovery and integrated health checking, Consu
 
 This can be a super handy way for Containers to know where they can retrieve important information from such as content/paths and so on.
 
-![Output](https://bundyfx.github.io/bundyfx-blog/img/posts/getting-to-know-consul/4.png)
+![Output](https://bundyfx.github.io/bundyfx.github.io/img/posts/getting-to-know-consul/4.png)
 
 You will see that if we query our *key/value* store we get back a `404 Not found`. Well, we need to first put some data in there before we can get anything back.
 
@@ -132,7 +132,7 @@ And to add in a Client node *(no -server switch)*:
 
 `docker run -d -p 8400:8400 -p 8500:8500 -p 8600:53/udp --name node4 -h node4 progrium/consul -join $JOIN_IP`
 
-![Output](https://bundyfx.github.io/bundyfx-blog/img/posts/getting-to-know-consul/6.png)
+![Output](https://bundyfx.github.io/bundyfx.github.io/img/posts/getting-to-know-consul/6.png)
 
 You can hit the web console to see the nodes listed there.
 
@@ -150,7 +150,7 @@ rm *.zip
 
 Once the consul binaries have been downloaded to the node you can simply run `consul` to see the help.
 
-![Output](https://bundyfx.github.io/bundyfx-blog/img/posts/getting-to-know-consul/5.png)
+![Output](https://bundyfx.github.io/bundyfx.github.io/img/posts/getting-to-know-consul/5.png)
 
 Now that we've got Consul downloaded we can join this agent to our cluster using `consul join` and passing in one of the IP address' of the cluster nodes: `consul join *ipaddress*`.
 
@@ -174,7 +174,7 @@ Now let's clone this great repository by [Scott Memberson](https://github.com/sm
 
 Once this has downloaded the required images and spun containers up you should be able to hit `localhost:8500` to see the Consul web UI or localhost:80 to see the requests being served to and responded by different Node.js containers, maintaining sticky sessions.
 
-![Output](https://bundyfx.github.io/bundyfx-blog/img/posts/getting-to-know-consul/7.png)
+![Output](https://bundyfx.github.io/bundyfx.github.io/img/posts/getting-to-know-consul/7.png)
 
 These Services were started and bootstrapped to essentially do a `consul join` and connect with the consul cluster. Once joined they can be queried by other services requiring there needs.
 
@@ -190,7 +190,7 @@ Another example using `consul exec`
 
 `consul exec echo 'hi from $(hostname)'`
 
-![Output](https://bundyfx.github.io/bundyfx-blog/img/posts/getting-to-know-consul/8.png)
+![Output](https://bundyfx.github.io/bundyfx.github.io/img/posts/getting-to-know-consul/8.png)
 
 This sort of functionality is critical as it allows you to `exec` commands on certain tags or even services.
 
@@ -198,7 +198,7 @@ This sort of functionality is critical as it allows you to `exec` commands on ce
 
 You may of noticed the health checks in Consul also. This is a critical part of Consul as it's important to know the health of a Service prior to that Service taking on traffic from outside sources.
 
-![Output](https://bundyfx.github.io/bundyfx-blog/img/posts/getting-to-know-consul/9.png)
+![Output](https://bundyfx.github.io/bundyfx.github.io/img/posts/getting-to-know-consul/9.png)
 
 In the example above you may of noticed the health check doing a simple http request on `localhost:4000/ping`. These health checks can be simply created in blocks of JSON and stored on the node.
 
