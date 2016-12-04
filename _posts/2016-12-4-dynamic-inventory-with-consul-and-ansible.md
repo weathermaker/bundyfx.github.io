@@ -80,21 +80,21 @@ This is all well and good however none of these clients are running any specific
 
 As you may remember from my previous post on [Getting to know Consul](https://flynnbundy.com/service-discovery/2016/11/26/getting-to-know-consul.html) we went through setting up a Consul Service. For this example let's keep things simple and go with a very similar service.
 
-On one of our client containers let's make a nodejs.json:
+On one of our client containers let's make a `nodejs.json`:
 
 ```shell
 echo '{"service": {"name": "NodeJS", "tags": ["nodejs"], "port": 80}}' \
 | tee /etc/consul.d/nodejs.json
 ```
 
-And this on a different container:
+And `redis.json` on a different container:
 
 ```shell
 echo '{"service": {"name": "Redis", "tags": ["redis"], "port": 6379}}' \
 | tee /etc/consul.d/redis.json
 ```
 
-And let's do MongoDB also on our third container:
+And let's do `mongodb.json` also on our third container:
 
 ```shell
 echo '{"service": {"name": "MongoDB", "tags": ["mongodb"], "port": 27019}}' \
@@ -124,7 +124,7 @@ So now that we've got everything running as we planned. It's time to go through 
 
 The magic glue that ties this all together is the official `consul_io.py` code that is available on the [Ansible repository](https://github.com/ansible/ansible/blob/a3f88eddad772fb0f2e3c1177d1ed08c01e48c48/contrib/inventory/consul_io.py).
 
-Go ahead and clone this repository down. Once you've got it locally in the Ansible Container copy the **consul_io.py** and the **consul.ini** into your `/opt/ansible/ansible/bin` directory.
+Go ahead and clone this repository down. Once you've got it locally in the Ansible Container copy the `consul_io.py` and the `consul.ini` into your `/opt/ansible/ansible/bin` directory.
 
 Crack open the `consul.ini` file and throw in the name of one of the server nodes within the Consul Cluster.
 
@@ -140,7 +140,7 @@ Simply run the `consul_io.py` file to see an output taken directly from Consul.
 
 ![Output](/img/posts/2016-12-4-dynamic-inventory-with-consul-and-ansible/6.png)
 
-So now we have this data, let's get Ansible to run a command against nodes from our output. We can simply pass in the `consul_io.py` file as our inventory as specify a role. We also need to choose a role *(MongoDB_servers)* in which we want to target for our configuration.
+So now we have this data, let's get Ansible to run a command against nodes from our output. We can simply pass in the `consul_io.py` file as our inventory using `-i`. We also need to choose a role in which we want to target for our configuration.
 
 ![Output](/img/posts/2016-12-4-dynamic-inventory-with-consul-and-ansible/7.png)
 
@@ -150,8 +150,8 @@ For testing purposes you can use the [Insecure private key](https://github.com/m
 
 If you would like to use this same container image to run through this scenario you will need to add a `group_vars/all/vars.yml` file with the SSH password for the image which is: `Password101` and the username: `app-admin`
 
-In a production scenario you would also want to setup health checks in that your container's would leave (`consul force-leave`) the cluster if they failed certain health checks. This way Ansible would not attempt to deploy to them if they are offline.
+In a production scenario, you would want to setup health checks to determine the state of the node. If these health checks fail the node *can* be removed from Consul and thus updating the inventory. A node can leave Consul by running `consul force-leave`.
 
 ### Conclusion
 
-Ansible is a great tool for Configuration Management. Coupled with new age tools such as Consul for dynamic inventory and you've got yourself a truly flexible system that requires no manual *touch-ups* to get nodes configured.
+Ansible is a great tool for Configuration Management. Couple it with a new age tool such as Consul for dynamic inventory and you've got yourself a truly flexible system that requires no manual *touch-ups* to get nodes configured.
