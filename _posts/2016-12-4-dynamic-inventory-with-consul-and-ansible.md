@@ -53,6 +53,9 @@ wget https://releases.hashicorp.com/consul/0.7.1/consul_0.7.1_linux_amd64.zip
 unzip *.zip
 ```
 
+You should be able to run `consul` from the container to see the help.
+
+
 ### Joining the Cluster
 
 Once we have Consul installed we can simply join our cluster as a Client by running:
@@ -69,11 +72,11 @@ Let's add in a few more nodes just so we have a bit more data to work with.
 
 ![Output](/img/posts/2016-12-4-dynamic-inventory-with-consul-and-ansible/3.png)
 
-Now we have our *three* clients.
+Now we have our *three* clients and *three* servers.
 
 ### Adding Services
 
-This is all well and good however none of these clients are running any specific Services yet. Let's create a Service on each of them so that we can filter on that in our Ansible playbook's later on.
+This is all well and good however none of these clients are running any specific Services yet. Let's create a Service on each of them so that we can filter on that in Ansible later on.
 
 As you may remember from my previous post on [Getting to know Consul](https://flynnbundy.com/service-discovery/2016/11/26/getting-to-know-consul.html) we went through setting up a Consul Service. For this example let's keep things simple and go with a very similar service.
 
@@ -121,9 +124,9 @@ So now that we've got everything running as we planned. It's time to go through 
 
 The magic glue that ties this all together is the official `consul_io.py` code that is available on the [Ansible repository](https://github.com/ansible/ansible/blob/a3f88eddad772fb0f2e3c1177d1ed08c01e48c48/contrib/inventory/consul_io.py).
 
-Go ahead and clone this repository down. Once you've got it locally in the Ansible Container copy the **consul_io.py** and the **consul.ini** into your **/opt/ansible/ansible/bin** directory.
+Go ahead and clone this repository down. Once you've got it locally in the Ansible Container copy the **consul_io.py** and the **consul.ini** into your `/opt/ansible/ansible/bin` directory.
 
-Crack open the consul.ini file and throw in the name of one of the server nodes within the Consul Cluster.
+Crack open the `consul.ini` file and throw in the name of one of the server nodes within the Consul Cluster.
 
 ![Output](/img/posts/2016-12-4-dynamic-inventory-with-consul-and-ansible/5.png)
 
@@ -133,11 +136,11 @@ Before we can run our inventory query we will need to do a quick pip install:
 
 Once that's done we're good to go.
 
-Simply run the consul_io.py file to see an output taken directly from Consul.
+Simply run the `consul_io.py` file to see an output taken directly from Consul.
 
 ![Output](/img/posts/2016-12-4-dynamic-inventory-with-consul-and-ansible/6.png)
 
-So now we have this data, let's get Ansible to run a command against nodes from our output. We can simply pass in the consul_io.py file as our inventory as specify a role.
+So now we have this data, let's get Ansible to run a command against nodes from our output. We can simply pass in the `consul_io.py` file as our inventory as specify a role. We also need to choose a role *(MongoDB_servers)* in which we want to target for our configuration.
 
 ![Output](/img/posts/2016-12-4-dynamic-inventory-with-consul-and-ansible/7.png)
 
@@ -145,7 +148,9 @@ This makes it effortless for Ansible to update new nodes that join Consul.
 
 For testing purposes you can use the [Insecure private key](https://github.com/mitchellh/vagrant/blob/master/keys/vagrant) as I have for this demo.
 
-In a production scenario you would also want to setup health checks in that your container's would leave `consul force-leave` the cluster if they failed certain health checks. This way Ansible would not attempt to deploy to them if they are offline.
+If you would like to use this same container image to run through this scenario you will need to add a `group_vars/all/vars.yml` file with the SSH password for the image which is: `Password101` and the username: `app-admin`
+
+In a production scenario you would also want to setup health checks in that your container's would leave (`consul force-leave`) the cluster if they failed certain health checks. This way Ansible would not attempt to deploy to them if they are offline.
 
 ### Conclusion
 
