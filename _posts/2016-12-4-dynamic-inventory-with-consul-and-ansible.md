@@ -6,6 +6,8 @@ category: Ansible
 tags: [ 'Ansible', 'Consul' ]
 ---
 
+In this post I want to go over using Ansible with a dynamic inventory generated with Consul. Ansible is a great tool for Configuration Management and really lives up to its mantra of simplicity. However, when it comes to management of static inventory files it can become messy quite quickly.
+
 Contents
 =================
 
@@ -20,9 +22,7 @@ Contents
 
 ### Intro
 
-In this post I want to go over using Ansible with a dynamic inventory generated with Consul. Ansible is a great tool for Configuration Management and really lives up to its mantra of simplicity. However, when it comes to management of static inventory files it can become messy quite quickly.
-
-Because of this, it's far more simplistic to use a dynamic inventory that can be retrieved with a simple API call out to the tool that's managing your inventory. This *'tool'* can really be anything that is holding information in regards to your nodes such as VMware, AWS or something like Consul.
+Inventory in Ansible is a simplistic concept, however as you add more and more *snowflake* type servers in it can become quickly over complicated and cluttered. Dynamic inventory in Ansible allows us to query an endpoint to retrieve inventory data that can be dynamically updated from other sources. This *'endpoint'* can really be anything that is holding information in regards to your nodes such as VMware, AWS or something like Consul.
 
 ### Consul Cluster
 
