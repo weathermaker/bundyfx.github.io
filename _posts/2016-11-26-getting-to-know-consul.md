@@ -160,7 +160,7 @@ Once the consul binaries have been downloaded to the node you can simply run `co
 
 ![Output](/img/posts/2016-11-26-getting-to-know-consul/5.png)
 
-Now that we've got Consul downloaded we can join this agent to our cluster using `consul join` and passing in one of the IP address' of the cluster nodes: `consul join *ipaddress*`.
+Now that we've got Consul downloaded we can join this agent as a client to our cluster using `consul agent` and passing in one of the IP address' of the cluster nodes: `consul agent -join 172.17.0.3 -data-dir /tmp/consul -config-dir=/etc/consul.d`. We also specific a data directory *(for storing local data)* and a configuration directory *(for storing services and checks)*.
 
 ### Creating a Service
 
