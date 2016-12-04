@@ -8,7 +8,6 @@ tags: [ 'Docker', 'Consul' ]
 
 Recently I had an itching to learn about [Consul](https://github.com/hashicorp/consul). In this post I want to share with you some of my findings and ramble about how this tool works.
 
-![Output](/img/posts/2016-11-26-getting-to-know-consul/logoconsul.png)
 
 Contents
 =================
