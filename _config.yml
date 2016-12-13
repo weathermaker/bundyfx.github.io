@@ -127,6 +127,8 @@ social:
     url: "https://twitter.com/Bundyfx"
   - title: "github"
     url: "https://github.com/bundyfx"
+  - title: "rss"
+    url: "/feed.xml"
 
 
 ############
