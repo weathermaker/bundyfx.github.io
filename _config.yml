@@ -129,6 +129,8 @@ social:
     url: "https://github.com/bundyfx"
   - title: "rss"
     url: "/feed.xml"
+  - title: "youtube"
+    url: "https://www.youtube.com/channel/UCKZy6c6KewxX_SnfYpOMxLg"
 
 
 ############
