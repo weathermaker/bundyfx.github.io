@@ -66,7 +66,7 @@ Let's get the binaries for Consul Template now and see how this works. You can d
 
 Let's go and setup our *datadog.conf* file ready to be managed by Consul Template. Firstly, Consul Template requires that the file extension be changed to **.ctmpl**.
 
-![ctmpl](/img/posts/2017-01-27-getting-started-with-consul-templates/1.png)
+![ctmpl](/img/posts/2017-01-25-getting-started-with-consul-templates/1.PNG)
 
 Let's also open up the file and make some changes.
 
