@@ -101,7 +101,7 @@ Consul Template takes any number of *-template* commands that can point to any *
 Now, Let's make Consul Template Restart our Datadog Service if it notices any changes to this specific item in our Key/Value store.
 
 ```
- ./consul-template.exe -consul-addr localhost:8500 -template "C:\ProgramData\Datadog\datadog.ctmpl:C:\ProgramData\Datadog\datadog.conf:powershell.exe restart-service DatadogAgent"
+./consul-template.exe -consul-addr localhost:8500 -template "C:\ProgramData\Datadog\datadog.ctmpl:C:\ProgramData\Datadog\datadog.conf:powershell.exe restart-service DatadogAgent"
 ```
 
 If we now update our *"web/redis-datadogtags"* value within our Key/Value store; Consul Template will substitute in the new value into the file being watched and run the command that is specified after the colon. In this case we call PowerShell.exe to restart our DatadogAgent Service.
