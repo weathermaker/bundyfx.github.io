@@ -74,8 +74,7 @@ Here is the small bit of the file that we're going to be working on in this exam
 
 ```
 # Set the host's tags (default: no tags)
-tags: "{{ "{% this " }}%}"
-#tags: "{{key "web/redis-datadogtags"}}"
+tags: "&#123;&#123;key "web/redis-datadogtags"&#125;&#125;"
 ```
 
 We are simply finding the tags section within the *.conf* file and replacing the value with the location of the data that we want to grab from Consul.
