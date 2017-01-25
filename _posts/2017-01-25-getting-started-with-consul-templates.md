@@ -83,7 +83,7 @@ Now, let's save that file and head over to our command-line. By running the foll
 
 ```
 ./consul-template.exe -consul-addr localhost:8500 -template "C:\ProgramData\Datadog\datadog.ctmpl:C:\ProgramData\Datadog\datadog.conf"
- ```
+```
 
 Once that has been executed you should see your newly created *datadog.conf* within the output path you have specified. In this case its *C:\ProgramData\Datadog\datadog.conf*.
 
