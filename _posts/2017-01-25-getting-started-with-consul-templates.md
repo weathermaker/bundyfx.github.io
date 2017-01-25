@@ -71,12 +71,12 @@ Let's go and setup our *datadog.conf* file ready to be managed by Consul Templat
 Let's also open up the file and make some changes.
 
 Here is the small bit of the file that we're going to be working on in this example:
-
+{% raw %}
 ```
 # Set the host's tags (default: no tags)
-tags: "&#123;&#123;key "web/redis-datadogtags"&#125;&#125;"
+tags: "{{key "web/redis-datadogtags"}}"
 ```
-
+{% endraw %}
 We are simply finding the tags section within the *.conf* file and replacing the value with the location of the data that we want to grab from Consul.
 
 Now, let's save that file and head over to our command-line. By running the following command we can tell Consul Template to take a look at the *.ctmpl* file and replace any specified substitution information with actual data from Consul.
