@@ -102,13 +102,13 @@ Now, Let's make Consul Template Restart our Datadog Service if it notices any ch
 
 ```
  ./consul-template.exe -consul-addr localhost:8500 -template "C:\ProgramData\Datadog\datadog.ctmpl:C:\ProgramData\Datadog\datadog.conf:powershell.exe restart-service DatadogAgent"
- ```
+```
 
- If we now update our *"web/redis-datadogtags"* value within our Key/Value store; Consul Template will substitute in the new value into the file being watched and run the command that is specified after the colon. In this case we call PowerShell.exe to restart our DatadogAgent Service.
+If we now update our *"web/redis-datadogtags"* value within our Key/Value store; Consul Template will substitute in the new value into the file being watched and run the command that is specified after the colon. In this case we call PowerShell.exe to restart our DatadogAgent Service.
 
- This allows the service to re-register with the Datadog endpoint and update any configuration within the web console.
+This allows the service to re-register with the Datadog endpoint and update any configuration within the web console.
 
- This is a fairly simple example, however you can learn more about the sort of variables, data and statements that can be used from within Consul Template on their [Github page](https://github.com/hashicorp/consul-template).
+This is a fairly simple example, however you can learn more about the sort of variables, data and statements that can be used from within Consul Template on their [Github page](https://github.com/hashicorp/consul-template).
 
 ## Conclusion
 
