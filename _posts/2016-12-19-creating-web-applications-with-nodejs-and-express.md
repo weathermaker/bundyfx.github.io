@@ -14,7 +14,7 @@ Before I head off I wanted to share a quick four part video tutorial I have put 
 
 You can catch the tutorial over on my YouTube page along with a whole lot more content.
 
-[NodeJS  and Express Tutorial](https://www.youtube.com/channel/UCKZy6c6KewxX_SnfYpOMxLg)
+[NodeJS and Express Tutorial](https://www.youtube.com/channel/UCKZy6c6KewxX_SnfYpOMxLg)
 
 Please let me know if it was helpful in any way. I look forward to making more short series based on feedback from you guys so please let me know what you're interested in.
 
