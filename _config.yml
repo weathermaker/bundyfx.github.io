@@ -32,7 +32,7 @@ force-https: True
 lang: "en"
 author: "Flynn Bundy"
 title: "{ Flynn Bundy }"
-description: "Blog and website of Flynn Bundy. Speaker, Author, Cloud guy. A Microsoft Cloud and Datacenter MVP interested in all things automated."
+description: "Blog and website of Flynn Bundy. Speaker, Author, Cloud obsessed. A Microsoft Cloud and Datacenter MVP interested in all things automated."
 keywords: "bundy, flynn, personal, jekyll, theme"
 favicon: "/img/favicon.ico"
 
