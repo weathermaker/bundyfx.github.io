@@ -122,7 +122,7 @@ Again, in order to do that we simply add an asterisk to the front of the variabl
 
 Now if we run the application we can see that we have succeeded in changing the message variable in the main function from within our printAbc function.
 
-In order to fully understand this concept follow the path of execution through the two functions.
+In order to fully understand this concept, follow the path of execution through the two functions.
 If you can understand each of the steps outlined in the comments of the snippits and map it to the logical execution of the program then you are in the clear.
 
 
