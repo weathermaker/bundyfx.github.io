@@ -32,7 +32,7 @@ force-https: True
 lang: "en"
 author: "Flynn Bundy"
 title: "{ Flynn Bundy }"
-description: "Blog and website of Flynn Bundy. A Microsoft Cloud and Datacenter MVP interested in all things automated."
+description: "Blog and website of Flynn Bundy. A Microsoft MVP interested in all things automated."
 keywords: "bundy, flynn, personal, jekyll, theme"
 favicon: "/img/favicon.ico"
 
@@ -113,7 +113,7 @@ email: "flynn.sbundy@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "A Windows Cloud and Datacenter Management MVP, lover of all things automated."
+author_blurb: "A lover of all things automated, continously integrated and deployed."
 author_blurb_image: "/img/author.png"
 
 ##################
