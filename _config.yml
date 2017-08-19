@@ -1,7 +1,7 @@
 # Site settings
 title: Flynn Bundy
 description: A blog about lorem ipsum dolor sit amet
-baseurl: "/bundyfx.github.io"
+#baseurl: "/bundyfx.github.io"
 url: "https://flynnbundy.com/"
 enforce_ssl: flynnbundy.com
 # User settings
