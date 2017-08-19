@@ -8,7 +8,6 @@ enforce_ssl: flynnbundy.com
 
 force-https: True
 username: Flynn Bundy
-user_description: A guy
 user_title: Software Engineer
 email: flynn.sbundy@gmail.com
 twitter_username: bundyfx
