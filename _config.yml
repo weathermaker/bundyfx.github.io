@@ -4,7 +4,6 @@ description: A blog about lorem ipsum dolor sit amet
 baseurl: "/bundyfx.github.io"
 url: "https://flynnbundy.com/"
 enforce_ssl: flynnbundy.com
-force-https: True
 # User settings
 
 username: Flynn Bundy
